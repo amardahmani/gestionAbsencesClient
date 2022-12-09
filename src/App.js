@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import { Calendar, momentLocalizer } from 'react-big-calendar'
+import moment from 'moment'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Login from './pages/Login';
+import ListEnseignant from './components/ListEnseignant';
+import FaireAppel from './components/FaireAppel';
+import AjouterEnseignant from './components/AjouterEnseignant';
+import AjouterEtudiant from './components/AjouterEtudiant';
+import AjouterModule from './components/AjouterModule';
+import ListeAbsence from './components/ListeAbsence';
+import NavBar from './components/NavBar';
+
 
 function App() {
-  return (
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
     </div>
   );
 }
