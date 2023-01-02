@@ -1,25 +1,15 @@
-import React, { useState } from 'react'
-import {MDBContainer, MDBCol, MDBRow, MDBBtn, MDBIcon, MDBInput, MDBCheckbox } from 'mdb-react-ui-kit';
-import Module from '../images/Module.svg';
+import React from 'react'
+import {MDBContainer, MDBCol, MDBRow, MDBBtn, MDBInput } from 'mdb-react-ui-kit';
 
 
-const AjouterModule = () => {
-
-  const initialModuleState = {
-    code_module: "",
-    description: "",
-    coeif: ""
-  }
-
-  const [module,setModule] = useState(initialModuleState);
-
+const AjouterSeance = () => {
   return (
     <MDBContainer fluid className="p-3 my-5 h-custom">
 
       <MDBRow>
 
         <MDBCol col='8' md='4' className='my-4'>
-          <img src={Module} className="img-fluid" alt="Sample image" />
+          <img  className="img-fluid" alt="Sample image" />
         </MDBCol>
 
         <MDBCol col='6' md='8'>
@@ -50,4 +40,4 @@ const AjouterModule = () => {
   )
 }
 
-export default AjouterModule
+export default AjouterSeance

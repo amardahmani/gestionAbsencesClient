@@ -12,6 +12,8 @@ const ListeAbsence = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+
+
   return (
     <>
     <Table striped bordered hover>
@@ -34,7 +36,7 @@ const ListeAbsence = () => {
           <td>@mdo</td>
           <td>
           <Button variant="primary" onClick={handleShow}>
-            Launch demo modal
+            Jusitifier
           </Button>
           </td>
         </tr>

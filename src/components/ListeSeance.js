@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Table from 'react-bootstrap/Table';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
@@ -6,19 +7,15 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
 
-const ListEnseignant = () => {
+const ListeSeance = () => {
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  
-  
-  
 
   return (
-<div>
-    <h3 align="center">List Enseignants</h3>
+    <>
     <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Modifer Informations</Modal.Title>
@@ -68,7 +65,6 @@ const ListEnseignant = () => {
           <th>Email</th>
           <th>Module</th>
           <th></th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -80,12 +76,7 @@ const ListEnseignant = () => {
           <td>@mdo</td>
           <td>
           <Button variant="primary" onClick={handleShow}>
-            Modifer
-          </Button>
-          </td>
-          <td>
-          <Button variant="danger">
-            Supprimer
+            Jusitifier
           </Button>
           </td>
         </tr>
@@ -119,8 +110,8 @@ const ListEnseignant = () => {
         </tr>
       </tbody>
     </Table>
-</div>
+    </>
   )
 }
 
-export default ListEnseignant
+export default ListeSeance

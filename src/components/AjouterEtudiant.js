@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Etudiant from '../images/Etudiant.svg';
 import {MDBContainer, MDBCol, MDBRow, MDBBtn, MDBIcon, MDBInput, MDBCheckbox } from 'mdb-react-ui-kit';
 
 
 
 const AjouterEtudiant = () => {
+
+  const etudiantInitialState = {
+    matricule: "",
+    nom:"",
+    prenom:"",
+    email: "",
+    password:"",
+    specialite:"",
+    groupe:"",
+    niveau:""
+  }
+
+  const [etudiant,setEtudiant] = useState(etudiantInitialState);
+
   return (
     <MDBContainer fluid className="p-3 my-5 h-custom">
 

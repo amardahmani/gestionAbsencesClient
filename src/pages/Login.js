@@ -1,20 +1,41 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import {MDBContainer, MDBCol, MDBRow, MDBBtn, MDBIcon, MDBInput, MDBCheckbox } from 'mdb-react-ui-kit';
+import AuthService from '../services/auth.service';
 
 
 const Login = () => {
 
-  
-    
+  const [password,setPassword] = useState("");
+  const [email,setEmail] = useState("");
+  const form = useRef();
+  const handleLogin = (e) => {
+    e.preventDefault();
+    form.current.validateAll();
+
+    AuthService.login(email,password).then(
+      () => {
+        window.location.reload();
+      },
+      (error) => {
+        const resMessage = (error.response &&
+          error.response.data &&
+          error.response.data.message) || error.message || error.toString();
+
+      }
+    )
+  }
+
   return (
+
     <MDBContainer fluid className="p-3 my-5 h-custom">
 
       <MDBRow>
 
         <MDBCol col='10' md='6'>
-          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid" alt="Sample image" />
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" className="img-fluid" alt="Sample image" />
         </MDBCol>
 
+        <form method='POST' ref={form}>
         <MDBCol col='4' md='6'>
 
           <div className="d-flex flex-row align-items-center justify-content-center">
@@ -26,8 +47,19 @@ const Login = () => {
           <div className="divider d-flex align-items-center my-4">
           </div>
 
-          <MDBInput wrapperClass='mb-4' placeholder='Email address' id='formControlLg' type='email' size="lg" name='email'/>
-          <MDBInput wrapperClass='mb-4' placeholder='Password' id='formControlLg' type='password' size="lg" name='password'/>
+          <MDBInput wrapperClass='mb-4' placeholder='Email address' id='formControlLg' 
+          type='email' 
+          size="lg" 
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}/>
+          <MDBInput wrapperClass='mb-4' 
+          placeholder='Password' 
+          type='password' 
+          size="lg" 
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}/>
 
           <div className="d-flex justify-content-between mb-4">
             <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
@@ -39,7 +71,7 @@ const Login = () => {
           </div>
 
         </MDBCol>
-
+        </form>
       </MDBRow>
 
       <div className="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
@@ -71,6 +103,8 @@ const Login = () => {
       </div>
 
     </MDBContainer>
+  
+
   )
 }
 

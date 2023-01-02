@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MDBBtn, MDBTable, MDBTableHead, MDBTableBody,MDBCheckbox } from 'mdb-react-ui-kit';
 const FaireAppel = () => {
+
+  const [etudiants,setEtudiants] = useState([]);
+
   return (
     <>
-
     <h2>Faire Appel</h2>
-
+    <form method='POST'>
     <MDBTable align='middle'>
     <MDBTableHead className='bg-primary text-white'>
       <tr>
@@ -47,8 +49,9 @@ const FaireAppel = () => {
     
   </MDBTable>
   <div className='d-flex flex-row-reverse'>
-            <MDBBtn className="" size='lg'>Enregistrer</MDBBtn>
+      <MDBBtn className="" size='lg'>Enregistrer</MDBBtn>
     </div>
+    </form>
   </>
   )
 }

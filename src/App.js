@@ -9,13 +9,69 @@ import AjouterEnseignant from './components/AjouterEnseignant';
 import AjouterEtudiant from './components/AjouterEtudiant';
 import AjouterModule from './components/AjouterModule';
 import ListeAbsence from './components/ListeAbsence';
+import ListEtudiants from './components/ListEtudiants';
 import NavBar from './components/NavBar';
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import AuthService from './services/auth.service';
+import EventBus from "./common/EventBus";
 
 
 function App() {
+
+    const navigate = useNavigate();
+
+    const [user,setUser] = useState(undefined);
+    const [admin,setAdmin] = useState(false);
+    const [enseignant,setEnseignant] = useState(false);
+    const [etudiant,setEtudiant] = useState(false);
+
+    useEffect(() => {
+      const user = AuthService.getCurrentUser();
+      
+      if (user) {
+        setUser(user);
+        setEtudiant(user.roles.includes("ROLE_ETUDIANTS"));
+        setAdmin(user.roles.includes("ROLE_ADMIN"));
+        setEnseignant(user.roles.includes("ROLE_ENSEIGNANT"));
+      }
+  
+      EventBus.on("logout", () => {
+        logOut();
+      });
+
+
+  
+      return () => {
+        EventBus.remove("logout");
+      };
+    }, []);
+
+    const logOut = () => {
+      AuthService.logout();
+      setEtudiant(false);
+      setAdmin(false);
+      setEnseignant(false);
+    };
+
     return (
     <div className="App">
-      <NavBar />
+
+      <NavBar user={user} isAdmin={admin} isEnseignant={enseignant} isEtudiant={etudiant}/>
+
+      <div className="container mt-3">
+      <Routes>
+        <Route path='/login' element={<Login />}/>
+        <Route path='/profile'/> 
+        <Route path='/enseignants' element={<ListEnseignant />} />
+        <Route path='/etudiants' element={<ListEtudiants />} />
+        <Route path='/seances/faireAppel' element={<FaireAppel />} />
+        <Route path="/enseignants/ajouter" element={<AjouterEnseignant />} />
+        <Route path="/etudiants/ajouter" element={<AjouterEtudiant />}/>
+        <Route path='/modules/ajouter' element={<AjouterModule />} />
+        <Route path='/modules' />
+      </Routes>
+      </div>
     </div>
   );
 }
