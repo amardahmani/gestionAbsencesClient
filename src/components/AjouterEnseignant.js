@@ -1,10 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {MDBContainer, MDBCol, MDBRow, MDBBtn, MDBIcon, MDBInput, MDBCheckbox } from 'mdb-react-ui-kit';
 import Enseignant from '../images/Enseignant.svg'
 
 
 
 const AjouterEnseignant = () => {
+
+
+  const [enseignant,setEnseignant] = useState({
+    matricule:"",
+    nom:"",
+    prenom:"",
+    email:"",
+    password:"",
+    grade:""
+  });
+
+  const {matricule,nom,prenom,email,password,grade} = enseignant;
+
+  const onInputChange = (e) => {
+    setEnseignant({ ...enseignant, [e.target.name]: e.target.value });
+    
+  }
+
   return (
     <MDBContainer fluid className="p-3 my-5 h-custom">
 
@@ -24,15 +42,15 @@ const AjouterEnseignant = () => {
 
           <div className="divider d-flex align-items-center my-4">
           </div>
-          <MDBInput wrapperClass='mb-4' placeholder='Matricule' type='text' size="md" name='matricule'/>
+          <MDBInput wrapperClass='mb-4' placeholder='Matricule' type='text' size="md" name='matricule' value={matricule} onChange={(e) => onInputChange(e)}/>
 
-          <MDBInput wrapperClass='mb-4' placeholder='Nom' type='text' size="md" name='nom'/>
+          <MDBInput wrapperClass='mb-4' placeholder='Nom' type='text' size="md" name='nom' value={nom} onChange={(e) => onInputChange(e)}/>
 
-          <MDBInput wrapperClass='mb-4' placeholder='Prénom' type='text' size="md" name='prenom'/>
-          <MDBInput wrapperClass='mb-4' placeholder='Module' type='text' size="md" name='module'/>
+          <MDBInput wrapperClass='mb-4' placeholder='Prénom' type='text' size="md" name='prenom' value={prenom} onChange={(e) => onInputChange(e)}/>
+          <MDBInput wrapperClass='mb-4' placeholder='Grade' type='text' size="md" name='grade' value={grade} onChange={(e) => onInputChange(e)}/>
 
-          <MDBInput wrapperClass='mb-4' placeholder='Email address' type='email' size="md" name='email'/>
-          <MDBInput wrapperClass='mb-4' placeholder='Password' type='password' size="md" name='password'/>
+          <MDBInput wrapperClass='mb-4' placeholder='Email address' type='email' size="md" name='email' value={email} onChange={(e) => onInputChange(e)}/>
+          <MDBInput wrapperClass='mb-4' placeholder='Password' type='password' size="md" name='password' value={password} onChange={(e) => onInputChange(e)}/>
 
           <div className='text-center text-md-end mt-4 pt-2'>
             <MDBBtn className="mb-0 px-5" size='md'>Ajouter</MDBBtn>

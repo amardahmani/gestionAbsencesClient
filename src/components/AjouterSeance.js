@@ -16,7 +16,7 @@ const AjouterSeance = () => {
 
           <div className="d-flex flex-row align-items-center justify-content-center">
 
-            <p className="lead fw-normal mb-0 me-3">Ajouter Module: </p>
+            <p className="lead fw-normal mb-0 me-3">Ajouter Seance: </p>
 
           </div>
 
@@ -24,9 +24,14 @@ const AjouterSeance = () => {
           </div>
           <MDBInput wrapperClass='mb-4' placeholder='code_module' type='text' size="md" name='code_module'/>
 
-          <MDBInput wrapperClass='mb-4' placeholder='description' type='text' size="md" name='description'/>
+          <MDBInput wrapperClass='mb-4' placeholder='groupe' type='text' size="md" name='groupe'/>
 
-          <MDBInput wrapperClass='mb-4' placeholder='coeif' type='text' size="md" name='coeif'/>
+          <MDBInput wrapperClass='mb-4' placeholder='niveau' type='text' size="md" name='niveau'/>
+
+          <MDBInput wrapperClass='mb-4' placeholder='specialite' type='text' size="md" name='specialite'/>
+
+          <MDBInput wrapperClass='mb-4' placeholder='enseignant' type='text' size="md" name='enseignant'/>
+
           
           <div className='text-center text-md-end mt-4 pt-2'>
             <MDBBtn className="mb-0 px-5" size='md'>Ajouter</MDBBtn>

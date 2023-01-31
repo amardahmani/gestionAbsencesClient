@@ -5,13 +5,18 @@ import Module from '../images/Module.svg';
 
 const AjouterModule = () => {
 
-  const initialModuleState = {
+
+  const [module,setModule] = useState({
     code_module: "",
     description: "",
     coeif: ""
-  }
+  });
 
-  const [module,setModule] = useState(initialModuleState);
+  const {code_module,description,coeif} = module;
+
+  const onInputChange = (e) => {
+    setModule({ ...module, [e.target.name]: e.target.value });
+  }
 
   return (
     <MDBContainer fluid className="p-3 my-5 h-custom">

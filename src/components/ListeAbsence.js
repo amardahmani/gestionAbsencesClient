@@ -19,11 +19,9 @@ const ListeAbsence = () => {
     <Table striped bordered hover>
       <thead className='bg-primary text-white'>
         <tr>
-          <th>#</th>
-          <th>Nom</th>
-          <th>Prénom</th>
-          <th>Email</th>
+          <th>numero absence</th>
           <th>Module</th>
+          <th>date absence</th>
           <th></th>
         </tr>
       </thead>

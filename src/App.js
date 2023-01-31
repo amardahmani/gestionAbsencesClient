@@ -15,6 +15,7 @@ import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import AuthService from './services/auth.service';
 import EventBus from "./common/EventBus";
+import Home from './pages/Home';
 
 
 function App() {
@@ -57,7 +58,9 @@ function App() {
     return (
     <div className="App">
 
-      <NavBar user={user} isAdmin={admin} isEnseignant={enseignant} isEtudiant={etudiant}/>
+      
+      
+      
 
       <div className="container mt-3">
       <Routes>

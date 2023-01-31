@@ -35,32 +35,17 @@ const Login = () => {
           <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" className="img-fluid" alt="Sample image" />
         </MDBCol>
 
-        <form method='POST' ref={form}>
         <MDBCol col='4' md='6'>
 
           <div className="d-flex flex-row align-items-center justify-content-center">
 
-            <p className="lead fw-normal mb-0 me-3">Sign in </p>
-
+            <h2>Login</h2>
+          
           </div>
-
-          <div className="divider d-flex align-items-center my-4">
-          </div>
-
-          <MDBInput wrapperClass='mb-4' placeholder='Email address' id='formControlLg' 
-          type='email' 
-          size="lg" 
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}/>
-          <MDBInput wrapperClass='mb-4' 
-          placeholder='Password' 
-          type='password' 
-          size="lg" 
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}/>
-
+          <form>
+          <MDBInput wrapperClass='mb-4' placeholder="email" type='email' size="lg"/>
+          <MDBInput wrapperClass='mb-4' placeholder="password" type='password' size="lg"/>
+          </form>
           <div className="d-flex justify-content-between mb-4">
             <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
             <a href="!#">Forgot password?</a>
@@ -68,10 +53,11 @@ const Login = () => {
 
           <div className='text-center text-md-start mt-4 pt-2'>
             <MDBBtn className="mb-0 px-5" size='lg'>Login</MDBBtn>
+            <p className="small fw-bold mt-2 pt-1 mb-2">Don't have an account? <a href="#!" className="link-danger">Register</a></p>
           </div>
 
         </MDBCol>
-        </form>
+
       </MDBRow>
 
       <div className="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
